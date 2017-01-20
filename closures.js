@@ -15,18 +15,12 @@ closure over the name variable. Invoke outer saving the return value into
 another variable called 'inner'. */
 
 // Code Here
+var inner = outer();
 
 //Once you do that, invoke inner.
+inner();
 
 //Code Here
-
-
-
-
-
-
-
-
 
 
 /******************************************************************************\
@@ -49,14 +43,9 @@ in your console. */
 
   //Code Here
 
-
-
-
-
-
-
-
-
+  function makeCall(){
+    callFriend();
+  }
 
 /******************************************************************************\
 	#PROBLEM-03
@@ -68,20 +57,23 @@ properly. */
 
 //Code Here
 
-//Uncomment this once you make your function
-//   var count = makeCounter();
-//   count(); // 1
-//   count(); // 2
-//   count(); // 3
-//   count(); // 4
+function makeCounter(){
+  var counter = 1;
+
+    return function(){
+    return counter++;
+  }
 
 
+}
 
 
-
-
-
-
+// Uncomment this once you make your function
+  var count = makeCounter();
+  count(); // 1
+  count(); // 2
+  count(); // 3
+  count(); // 4
 
 
 /******************************************************************************\
@@ -100,7 +92,11 @@ function counterFactory(value) {
   // Code here.
 
 
+
+
   return {
+    inc: function(){value++;},
+    dec: function(){value++;}
   }
 }
 
